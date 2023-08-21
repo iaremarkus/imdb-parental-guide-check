@@ -1,5 +1,6 @@
 "use client";
 
+import { censorText } from "@/lib/censorWords";
 import { useCaseSwapper } from "@/lib/useCaseSwapper";
 import { useLoadingMessages } from "@/lib/useLoadingMessages";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -125,7 +126,7 @@ export const SearchForm = ({ className = "", ...props }: SearchFormProps) => {
                         <span className={classNames("font-bold uppercase p-1 rounded-lg px-2 text-sm", color)}>
                           {value}
                         </span>
-                        <span>{example || "No example found"}</span>
+                        <span>{censorText(example) || "No example found"}</span>
                       </div>
                     );
                   })}
